@@ -21,6 +21,21 @@ This gives applicatin high availiability, scalability and proper disaster recove
 11. StatefulSet: This helps stateful applications like Databases to keep their data consistency, especially during replication or multiple deployments.
 - Using StatefulSets for DB is very tedious. This is why DBs are usually created outside the k8 cluster.
 
+## KUBERNETES BASIC ARCHITECTURE
+1. Node Processes: Thiese processes runs on the Worker Node. The node is what houses the pods and 3 Processes must be installed:
+i. Container runtime (eg: containerd, docker, cri-o, etc)
+ii. kubelet: more like the k8 runtime. It enables interaction between the container and the node.
+iii. Kube Proxy: This is responsible for the communication inside the node. eg: enable services to properly forward traffic.
+
+2. Master Processes: These processes runs on the Master Nodes. They control the cluster state and the worker nodes. 4 processes must be available:
+i. API Server: This is how we interact to use K8. It could be a UI, CLI, IDE, SDK, etc. API Server is like the cluster gateway and source of authentication.
+ii. Scheduler: After API server validates our request and action, it hands it over to the scheduler to fulfil the required action n an intelligent manner.
+- Note: After the scheduler decides which worker node to fulfil the SPI request, kubelet picks it up in the node and executes it.
+iii. Controller Manager: Helps to detect state changes of the nodes and takes action by sending them to the scheduler. eg recreate dead pods.
+iv: etcd: This is the key-value store of a cluster state. More like the cluster brain, where all changes, configuration and mechanis, is saved.
+- This helps the master processes and worker processes to communicate for froper state management.
+
+NB: Node processes (worker nodes) require more CPU, Memory and Storage as they do more work or task than the Master processes/nodes
 
 
 
