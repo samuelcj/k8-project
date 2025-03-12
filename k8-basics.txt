@@ -1,1 +1,31 @@
-Summary of the kubernetes project
+SUMMARY OF THE KUBERNETES PROJECT
+Kubernetes is an open source container orchestration and management technology and platform.
+This gives applicatin high availiability, scalability and proper disaster recovery.
+
+## MAIN KUBERNETES COMPONENTS
+1. Node: This refers to a simple server or virtual machine. where the kubernetes runs.
+2. Pod: This is the smallest unit of a kubernetes. It is just basically an abstraction of a container.
+- So the pod creates the runing environment for the app or it is just a layer on the container.
+- It is usually one container per pod.
+- Each pod gets it's own private IP address, with which thwy use to interact with each other. A new IP is reassigned anytime thr pod is recreated.
+3. Service: This helps solve the changing IP issue of pods. It gives a permanent IP address and transcends the lifecycle of the pod.
+-The service can also act as a load balancer, in a case of cluster replication, and multiple pods. 
+4. External Service: These are services that opens communication from the public to your pods. eg: http://<node ip>:<service port>
+5. Internal Service: These are service used but dont grant public access.
+6. Ingress: This is a component used to map or forward public traffic to services in a secured pattern eg: https://my-app.com
+7. ConfigMap: This is the external configuration to my application eg DB URL. And it is usually conected to the pod, so the pod gets the data from configmap even when there are changes.
+8. Secret: This is just like the config map, but contains informations that shouldnt be exposed (internal) eg: DB Password, credentials, etc.
+9. Volumes: This is the data storage utilityy to enable data persistency irrespective of the pod/cluster lifecycle.
+10: Deployment: This is the blueprint of your cluster. It is where you define the amount and nature of your cluster. (for Stateless applications)
+- So we dont have to be creating pods, we just create Deployments and specify how many pods we need. It is an abstraction of pods.  
+11. StatefulSet: This helps stateful applications like Databases to keep their data consistency, especially during replication or multiple deployments.
+- Using StatefulSets for DB is very tedious. This is why DBs are usually created outside the k8 cluster.
+
+
+
+
+
+
+
+
+
