@@ -49,10 +49,8 @@ KUBECTL: This is the CLI tool use to interact with the K8 API server.
 - The kubectl command could be set with a minikube aliase if not automatically installed by the minikube.
     >> alias kubectl="minikube kubectl --"              # in the ~/.bashrc file.
 
-
-
-
-
+## To get a local dashboard view of your minicube cluster on your  browser, you can run the  below command that helps generate the url.
+    >> minikube dashboard
 
 
 
