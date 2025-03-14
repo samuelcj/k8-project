@@ -52,5 +52,21 @@ KUBECTL: This is the CLI tool use to interact with the K8 API server.
 ## To get a local dashboard view of your minicube cluster on your  browser, you can run the  below command that helps generate the url.
     >> minikube dashboard
 
+# BASIC KUBECTL COMMANDS
+1. kubectl get nodes:- To see all our nodes and know the status
+2. kubectl get pod:- To see all our pods 
+3. kubectl get services:- To see our clusters ans services informaation.
+4. kubectl create deployment:- To create pods, since deployments are abstractions of pods, which are also abstraction of containers.
+    >> kubectl create deployment <deployment name> --image=<image name>
+    eg: >> kubectl create deployment nginx-dpm --image=nginx
+5. kubectl edit deployment <deployment name>:- this gives us thedeployment configuration file for editing.
+6. kubectl get replicaset:- To see informations about the pods in the deployment.
+7. kubectl logs <pod name>:- used for debugging and insight into the pods activities.
+8. kubectl describe pod <pod name>:- This shows what state changes happen inside the container.
+9. kubectl exec -it <pod name> -- bin/bash :- To go into the pod's container,for debugging or running commands.
+10. kubectl delete deployment <deployment name> :- to delete pods, deployment and replica sets.
+11. kubectl apply -f <file name in yaml> :- To execute a deployment that have multiple setup orconfiguration.
+    eg: >> kubectl apply -f nginx-dpm.yaml
+12. kubectl delete -f <file name in yaml> :- to delete the deployment in the file setup
 
 
